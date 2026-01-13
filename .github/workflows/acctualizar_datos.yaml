@@ -1,4 +1,4 @@
-name: Actualizar datos 
+name: Actualizar datos
 
 on:
   schedule:
@@ -20,11 +20,11 @@ jobs:
       
       - name: Install R packages
         run: |
-          install.packages(c("rvest", "dplyr", "readr", "lubridate", "httr"))
+          install.packages(c("tidyverse", "rvest", "lubridate", "readr"))
         shell: Rscript {0}
       
       - name: Ejecutar script
-        run: Rscript scraping_original.R
+        run: Rscript obtener_datos.R
       
       - name: Commit y push de cambios
         run: |
