@@ -1,10 +1,8 @@
 name: Actualizar datos
-
 on:
   schedule:
     - cron: '0 */12 * * *'
   workflow_dispatch:
-
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -17,6 +15,11 @@ jobs:
         uses: r-lib/actions/setup-r@v2
         with:
           r-version: '4.3.0'
+      
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev libxml2-dev
       
       - name: Install R packages
         run: |
