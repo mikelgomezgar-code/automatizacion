@@ -1,0 +1,35 @@
+name: Actualizar datos
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.3.0'
+      
+      - name: Install R packages
+        run: |
+          install.packages(c("rvest", "dplyr", "readr", "stringr", "lubridate", "tidyr", "purrr"))
+        shell: Rscript {0}
+      
+      - name: Ejecutar script
+        run: Rscript obtener_datos.R
+      
+      - name: Commit y push de cambios
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff-index --quiet HEAD || git commit -m "Actualización automática $(date)"
+          git push
