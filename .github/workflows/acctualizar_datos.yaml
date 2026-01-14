@@ -20,7 +20,8 @@ jobs:
       
       - name: Install R packages
         run: |
-          install.packages(c("tidyverse", "rvest", "lubridate", "readr"))
+          install.packages("remotes")
+          remotes::install_cran(c("rvest", "dplyr", "readr", "stringr", "lubridate", "tidyr", "purrr"))
         shell: Rscript {0}
       
       - name: Ejecutar script
