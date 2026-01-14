@@ -3,11 +3,12 @@
 
 # Cargar librerías necesarias
 library(rvest)
-library(tidyverse)
 library(dplyr)
 library(stringr)
 library(lubridate)
 library(readr)
+library(tidyr)
+library(purrr)
 
 # Función para obtener y limpiar las encuestas
 obtener_encuestas <- function() {
