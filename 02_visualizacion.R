@@ -3,7 +3,9 @@
 # Genera gráfico interactivo con Plotly
 # ============================================
 
-library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(stringr)
 library(ggplot2)
 library(plotly)
 library(readr)
