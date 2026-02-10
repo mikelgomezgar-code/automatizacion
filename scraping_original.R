@@ -338,13 +338,13 @@ orden_partidos <- c(
   "BNG", "CC", "UPN", "SALF", "AC"
 )
 
-###Vamos a generar una lista de hitos a apuntoar (versión Beta)----
+###Vamos a generar una lista de hitos a apuntar (versión Beta)----
 hitos <- tibble(
   evento = c("Imputación Cerdán", "Incendios Castilla y Leon", "DANA Valencia",
-             "Casos de acoso PSOE", "Escandalo mamografías", "Flotilla de la libertad"),
+             "Casos de acoso PSOE", "Escandalo mamografías", "Accidente Adamuz", "Elecciones Extremadura"),
   fecha = as.Date(c("2025-06-05", "2025-08-10", "2024-10-29", "2025-12-12", "2025-10-01",
-                    "2025-10-03")),
-  y = c(44, 48, 46, 42, 40, 46)
+                    "2026-01-18", "2025-12-21")),
+  y = c(44, 48, 46, 42, 40,48, 46)
   )
 
 p <- ggplot(
