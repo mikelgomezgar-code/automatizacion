@@ -1,38 +1,41 @@
-name: Actualizar datos
+name: Actualizar datos y graficos
 on:
   schedule:
     - cron: '0 8 * * *'
   workflow_dispatch:
 jobs:
-  scrape:
+  actualizar:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-      
+
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
         with:
           r-version: '4.3.0'
-      
+
       - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y libcurl4-openssl-dev libxml2-dev
-      
+
       - name: Install R packages
         run: |
-          install.packages(c("rvest", "dplyr", "readr", "stringr", "lubridate", "tidyr", "purrr"))
+          install.packages(c("rvest", "dplyr", "readr", "stringr", "lubridate", "tidyr", "purrr", "ggplot2", "plotly", "htmlwidgets"))
         shell: Rscript {0}
-      
-      - name: Ejecutar script
+
+      - name: PASO 1 - Scraping y limpieza
         run: Rscript obtener_datos.R
-      
+
+      - name: PASO 2 - Generar visualizaciones
+        run: Rscript 02_visualizacion.R
+
       - name: Commit y push de cambios
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git pull --rebase origin main
           git add -A
-          git diff-index --quiet HEAD || git commit -m "Actualización automática $(date)"
+          git diff-index --quiet HEAD || git commit -m "Actualizacion automatica $(date +'%Y-%m-%d')"
           git push
