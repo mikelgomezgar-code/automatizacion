@@ -182,7 +182,7 @@ pl <- ggplotly(p, tooltip = "text") %>%
 htmlwidgets::saveWidget(
   pl, 
   "graficos/evolucion_encuestas.html",
-  selfcontained = TRUE,
+  selfcontained = FALSE,
   title = "Evolución Encuestas España"
 )
 
