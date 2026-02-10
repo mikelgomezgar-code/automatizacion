@@ -22,7 +22,7 @@ jobs:
 
       - name: Install R packages
         run: |
-          install.packages(c("rvest", "dplyr", "readr", "stringr", "lubridate", "tidyr", "purrr", "ggplot2", "plotly", "htmlwidgets"))
+          install.packages(c("rvest", "tidyverse", "dplyr", "readr", "stringr", "lubridate", "tidyr", "purrr", "ggplot2", "plotly", "htmlwidgets"))
         shell: Rscript {0}
 
       - name: PASO 1 - Scraping y limpieza
