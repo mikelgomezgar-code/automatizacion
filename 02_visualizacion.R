@@ -82,11 +82,11 @@ orden_partidos <- c(
 
 # 5. DEFINIR HITOS ----
 hitos <- tibble(
-  evento = c("Imputación Cerdán", "Incendios Castilla y León", "DANA Valencia",
-             "Casos de acoso PSOE", "Escándalo mamografías", "Flotilla de la libertad"),
-  fecha = as.Date(c("2025-06-05", "2025-08-10", "2024-10-29", 
-                    "2025-12-12", "2025-10-01", "2025-10-03")),
-  y = c(44, 48, 46, 42, 40, 46)
+  evento = c("Imputación Cerdán", "Incendios Castilla y Leon", "DANA Valencia",
+             "Casos de acoso PSOE", "Escandalo mamografías", "Accidente Adamuz", "Elecciones Extremadura"),
+  fecha = as.Date(c("2025-06-05", "2025-08-10", "2024-10-29", "2025-12-12", "2025-10-01",
+                    "2026-01-18", "2025-12-21")),
+  y = c(44, 48, 46, 42, 40,48, 46)
 )
 
 # 6. CREAR GRÁFICO BASE ----
